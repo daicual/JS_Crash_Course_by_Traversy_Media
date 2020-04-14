@@ -44,7 +44,6 @@
 //console.log(fruits.indexOf('pears'));
 //console.log(fruits.indexOf('non existing fruit'));
 
-
 //const person = {
 //    name: 'Dario',
 //    lastName:'Aícua Ubierna',
@@ -68,21 +67,21 @@
 //email created
 //console.log(`${person.name} ${person.lastName} lives in ${person.address.city} and one of his hobbies is ${person.hobbies[0]}. His email is ${person.email}`);
 const todos = [
-    {
-        id: 1,
-        text: 'Listen to music',
-        isCompleted: true
-    },
-    {
-        id: 2,
-        text: 'Do some sports',
-        isCompleted: false
-    },
-    {
-        id: 3,
-        text: 'Play some videogames',
-        isCompleted: false
-    }
+  {
+    id: 1,
+    text: "Listen to music",
+    isCompleted: true,
+  },
+  {
+    id: 2,
+    text: "Do some sports",
+    isCompleted: false,
+  },
+  {
+    id: 3,
+    text: "Play some videogames",
+    isCompleted: false,
+  },
 ];
 //console.log(`Todo number ${todos[0].id}: ${todos[0].text}. Completed? ${todos[0].isCompleted}.`);
 //console.log(todos);
@@ -99,10 +98,9 @@ const todos = [
 //}
 //this is the same of the above
 //for (let todo of todos){
-    //console.log(i);
+//console.log(i);
 //    console.log(`Todo number ${todo.id}: ${todo.text}. Completed? ${todo.isCompleted}.`);
 //}
-
 
 //WHILE loops
 //let contador = 0;
@@ -143,7 +141,57 @@ const todos = [
 //}
 
 //Ternary operator
-const x = 10;
-const color = x == 10 ? 'Red' : "Yellow";
-console.log(color);
+//const x = 10;
+//const color = x == 10 ? 'Red' : "Yellow";
+//console.log(color);
+//switch(color){
+//    case "Red":
+//        console.log("color is red");
+//       break;
+//    case "Yellow":
+//        console.log("color is yellow");
+//}
 
+//function Person(firstName, lastName, dob) {
+//  this.firstName = firstName;
+//  this.lastName = lastName;
+//  this.dob = new Date(dob);
+  //en el prototipo
+  //    this.getBirthYear = function(){
+  //       return this.dob.getFullYear();
+  //    }
+//  this.getFullName = function () {
+//    return this.firstName + " " + this.lastName;
+//  };
+//}
+
+//const person1 = new Person("Darío", "Aícua Ubierna", "1-14-1996"); //RECORDAR --> MES-DIA-AÑO
+//console.log(person1);
+//const person2 = new Person("Jon", "Martinez", "8-4-1990");
+//console.log(person2);
+//console.log(person1.dob.getFullYear());
+//console.log(person1.getBirthYear()); //no funciona porque aun no se ha creado el prototipo
+//console.log(person1.getFullName());
+
+//creacion del prototipo
+//Person.prototype.getBirthYear = function () {
+//  return this.dob.getFullYear();
+//};
+//console.log(person1.getBirthYear());
+
+class Person {
+  constructor(firstName, lastname, dob) {
+    this.firstName = firstName;
+    this.lastName = lastname;
+    this.dob = new Date(dob);
+  }
+  getBirthYear(){
+      return this.dob.getFullYear();
+  }
+  getFullName(){
+      return this.firstName + ' ' + this.lastName;
+  }
+}
+const person1 = new Person("Darío", "Aícua Ubierna", "1-14-1996"); //RECORDAR --> MES-DIA-AÑO
+console.log(person1.getBirthYear());
+console.log(person1.getFullName());
