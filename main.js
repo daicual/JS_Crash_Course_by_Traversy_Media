@@ -1,3 +1,71 @@
+
+class Perfil{
+  constructor(name, email){
+    this.name = name;
+    this.email = email;
+  }
+  getEmailLink(){
+    return `<a href="mailto:${this.email}">${this.email}</a>`;
+  }
+
+}
+function mostrarMensaje(mensaje = 'Error al submitir',tipo = 'OK'){
+  const myMsg = document.querySelector('.msg');
+  myMsg.innerHTML = `<p>${mensaje}</p>`;
+  let color = '';
+  switch(tipo){
+    case 'OK':
+      color = 'green';
+      break;
+    case 'ERROR':
+      color = 'red';
+      break;
+    case 'WARN':
+      color = 'orange';
+      break;
+    default:
+      color = 'green';
+      break;
+  }
+  myMsg.style.color = color;
+};
+
+const myBtn = document.querySelector('.btn');
+myBtn.addEventListener('click', (e) => {
+//VALIDAR EL FORMULARIO
+  let name = document.querySelector('#name').value;
+  let email = document.querySelector('#email').value;
+  let perfil = null;
+  if (name == ''){
+    console.log(1);
+    mostrarMensaje('Tienes que rellenar el nombre','ERROR');
+  } else {
+    if (email == ''){
+      mostrarMensaje('Tienes que rellenar el email','ERROR');
+    } else {
+      if (!email.contains('@')){
+        mostrarMensaje('Aviso de email no válido','WARN');
+      } else {
+        mostrarMensaje('Exito!!');
+      }
+      perfil = new Perfil(name, email);
+      return perfil;
+    }
+  }
+
+
+});
+
+
+
+
+
+
+
+
+
+
+//**********************
 //alert('Hello world');
 //console.log('Hello World Console');
 //console.error('This is an error!');
@@ -66,23 +134,23 @@
 //person.email='email@domain.com';
 //email created
 //console.log(`${person.name} ${person.lastName} lives in ${person.address.city} and one of his hobbies is ${person.hobbies[0]}. His email is ${person.email}`);
-const todos = [
-  {
-    id: 1,
-    text: "Listen to music",
-    isCompleted: true,
-  },
-  {
-    id: 2,
-    text: "Do some sports",
-    isCompleted: false,
-  },
-  {
-    id: 3,
-    text: "Play some videogames",
-    isCompleted: false,
-  },
-];
+//const todos = [
+//  {
+//    id: 1,
+//    text: "Listen to music",
+//    isCompleted: true,
+//  },
+//  {
+//    id: 2,
+//    text: "Do some sports",
+//    isCompleted: false,
+//  },
+//  {
+//    id: 3,
+//    text: "Play some videogames",
+//    isCompleted: false,
+//  },
+//];
 //console.log(`Todo number ${todos[0].id}: ${todos[0].text}. Completed? ${todos[0].isCompleted}.`);
 //console.log(todos);
 //console.log(todos[1].text);
@@ -179,19 +247,43 @@ const todos = [
 //};
 //console.log(person1.getBirthYear());
 
-class Person {
-  constructor(firstName, lastname, dob) {
-    this.firstName = firstName;
-    this.lastName = lastname;
-    this.dob = new Date(dob);
-  }
-  getBirthYear(){
-      return this.dob.getFullYear();
-  }
-  getFullName(){
-      return this.firstName + ' ' + this.lastName;
-  }
-}
-const person1 = new Person("Darío", "Aícua Ubierna", "1-14-1996"); //RECORDAR --> MES-DIA-AÑO
-console.log(person1.getBirthYear());
-console.log(person1.getFullName());
+//class Person {
+//  constructor(firstName, lastname, dob) {
+//    this.firstName = firstName;
+//    this.lastName = lastname;
+//    this.dob = new Date(dob);
+//  }
+//  getBirthYear(){
+//      return this.dob.getFullYear();
+//  }
+//  getFullName(){
+//      return this.firstName + ' ' + this.lastName;
+//  }
+//}
+//const person1 = new Person("Darío", "Aícua Ubierna", "1-14-1996"); //RECORDAR --> MES-DIA-AÑO
+//console.log(person1.getBirthYear());
+//console.log(person1.getFullName());
+//console.log(window);
+
+//Single elements
+//const form = document.getElementById('my-form');
+//console.log(form);
+//const listItems = document.querySelector('.items');
+//const item = document.querySelector('.item');
+//item.remove();
+//listItems.firstElementChild.textContent = 'Hola';
+//listItems.children[1].textContent = 'Adios';
+//listItems.lastElementChild.innerHTML = '<h1>TITULO</h1>';
+
+
+//const btn = document.querySelector('.btn');
+//btn.style.background = 'red';
+//btn.addEventListener('click', (e)=>{
+  //e.preventDefault();
+  //console.log('EVENTO DE CLICK');
+  //mismo boton
+ // const mismoBtn = e.target;
+  //document.querySelector('#my-form').style.background ='blue';
+  //listItems.children[0].textContent = document.getElementById('name').value;
+  //document.querySelector('body').classList.add('bg-dark');
+//});
